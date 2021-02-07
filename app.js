@@ -74,7 +74,6 @@ const displayMealDetail = idMeal => {
 
         mealstrIngredientDiv.innerHTML = mealIngredient;
         displayDetails.appendChild(mealstrIngredientDiv)
-        //    console.log(mealstrIngredientDiv);
     }
 
     const hideFullpage = document.getElementById('allpage');
