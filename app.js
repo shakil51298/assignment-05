@@ -8,31 +8,30 @@ const main = () => {
     fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=' + inputBox.value + '')
         .then(res => res.json())
         .then(data => displayMealName(data.meals));
-        
-        try {
-            if(inputBox.value == "") throw "empty";
-          }
-          catch(err) {
-            alert('We dont have meals By this name  plese Enter a valid name \n or Valid Category Name');
-          }
-        }
+
+    try {
+        if (inputBox.value == "") throw "empty";
+    } catch (err) {
+        alert('We dont have meals By this name  plese Enter a valid name \n or Valid Category Name');
+    }
+}
 
 
-    const displayMealName = name => {
-        const mainDiv = document.getElementById('meals');
+const displayMealName = name => {
+    const mainDiv = document.getElementById('meals');
 
-        name.forEach(meal => {
-            const mealDiv = document.createElement('div');
-            mealDiv.className = "mealCard"
-            const mealNameAndThub = `
+    name.forEach(meal => {
+        const mealDiv = document.createElement('div');
+        mealDiv.className = "mealCard"
+        const mealNameAndThub = `
             <img class="thub" src="${meal.strMealThumb}"></img>
             <h3>${meal.strMeal}</h3>
             <button class="btn btn-info"onclick="displayMealDetail('${meal.idMeal}')">Details</button>
             `;
-            mealDiv.innerHTML = mealNameAndThub;
-            mainDiv.appendChild(mealDiv);
-        });
-    }
+        mealDiv.innerHTML = mealNameAndThub;
+        mainDiv.appendChild(mealDiv);
+    });
+}
 
 
 
@@ -90,5 +89,3 @@ function back() {
     const hideDetails = document.getElementById('ingredients');
     hideDetails.style.display = 'none'
 }
-
-
