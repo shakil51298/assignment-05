@@ -1,0 +1,41 @@
+/* display meal list */
+#meals{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 20px;
+    margin-top: 20px;
+
+}
+.mealCard{
+    border: 1px solid red;
+    border-radius: 20px;
+    padding: 20px;
+}
+.thub{
+    width: 100%;
+    border-radius: 20px;
+}
+
+/* display details */
+
+
+#ingredients{
+    width: 50%;
+    height: 100%;
+    background: rgb(255, 238, 0);
+    box-shadow: 5px 5px 5px gray;
+    margin:0 auto;
+}
+.mealsIngredient{
+    padding: 20px;
+}
+.thubIngredient{
+    width:100% ;
+}
+
+
+@media screen and (max-width: 600px) {
+    #meals {
+    grid-template-columns: repeat(1,1fr);
+    }
+  }
