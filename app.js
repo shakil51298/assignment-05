@@ -13,7 +13,7 @@ const main = () => {
             if(inputBox.value == "") throw "empty";
           }
           catch(err) {
-            alert('We dont have meals By this name  plese Enter a valid name \nor Valid Category Name');
+            alert('We dont have meals By this name  plese Enter a valid name \n or Valid Category Name');
           }
         }
 
