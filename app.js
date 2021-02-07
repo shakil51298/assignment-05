@@ -8,7 +8,14 @@ const main = () => {
     fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=' + inputBox.value + '')
         .then(res => res.json())
         .then(data => displayMealName(data.meals));
-        .catch(err => {alert('please inpit ')}
+        
+        try {
+            if(inputBox.value == "") throw "empty";
+          }
+          catch(err) {
+            alert('We dont have meals By this name  plese Enter a valid name \nor Valid Category Name');
+          }
+        }
 
 
     const displayMealName = name => {
@@ -27,7 +34,6 @@ const main = () => {
         });
     }
 
-}
 
 
 
