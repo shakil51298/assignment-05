@@ -13,6 +13,7 @@ document.getElementById('searchBtn').addEventListener('click', function () {
 
 const main = () => {
     document.getElementById('meals').innerHTML='';
+    document.getElementById('ingredients').innerHTML='';
     fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=' + inputBox.value + '')
         .then(res => res.json())
         .then(data => displayMealName(data.meals));
@@ -21,6 +22,7 @@ const main = () => {
 
 
 const displayMealName = name => {
+    
     const mainDiv = document.getElementById('meals');
 
     name.forEach(meal => {
@@ -47,6 +49,7 @@ const displayMealDetail = idMeal => {
 
 
     const mealInfo = mealdata => {
+        
         const displayDetails = document.getElementById('ingredients')
 
         const mealstrIngredientDiv = document.createElement('div');
@@ -74,8 +77,9 @@ const displayMealDetail = idMeal => {
 
         mealstrIngredientDiv.innerHTML = mealIngredient;
         displayDetails.appendChild(mealstrIngredientDiv)
+        
     }
-
+    
     const hideFullpage = document.getElementById('foodArea');
     hideFullpage.style.display = "none";
     const showDetails = document.getElementById('ingredients');
@@ -83,6 +87,7 @@ const displayMealDetail = idMeal => {
 }
 
 const back = () => {
+    
     const showFullpage = document.getElementById('foodArea');
     showFullpage.style.display = "block";
     const hideDetails = document.getElementById('ingredients');
