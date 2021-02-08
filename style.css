@@ -1,3 +1,23 @@
+
+/* nav Bar */
+.navBar{
+    padding: 5px;
+    overflow: hidden;
+}
+.navBar a{
+    text-decoration: none;
+    color: rgb(255, 1, 1);
+    padding: 5px;
+    font-size: large;
+}
+.navBar .float-left,.navBar .float-right{
+    float: left;
+    padding: 10px;
+}
+.navBar .float-right{
+    float: right;
+}
+
 /* display meal list */
 #meals{
     display: grid;
@@ -9,7 +29,7 @@
 .mealCard{
     border: 1px solid rgb(214, 208, 208);
     border-radius: 20px;
-    padding: 20px;
+    padding: 10px; 
 }
 .thub{
     width: 100%;

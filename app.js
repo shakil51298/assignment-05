@@ -13,7 +13,7 @@ document.getElementById('searchBtn').addEventListener('click', function () {
 
 const main = () => {
 
-    fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=' + inputBox.value + '')
+    fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=' + inputBox.value + '')
         .then(res => res.json())
         .then(data => displayMealName(data.meals));
 }
@@ -29,7 +29,7 @@ const displayMealName = name => {
         const mealNameAndThub = `
             <img class="thub" src="${meal.strMealThumb}"></img>
             <h3>${meal.strMeal}</h3>
-            <button class="btn btn-info"onclick="displayMealDetail('${meal.idMeal}')">Details</button>
+            <button class="btn btn-primary"onclick="displayMealDetail('${meal.idMeal}')">Details</button>
             `;
         mealDiv.innerHTML = mealNameAndThub;
         mainDiv.appendChild(mealDiv);
