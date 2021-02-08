@@ -12,8 +12,8 @@ document.getElementById('searchBtn').addEventListener('click', function () {
 // display Meal Name thubnail
 
 const main = () => {
-    document.getElementById('meals').innerHTML='';
-    document.getElementById('ingredients').innerHTML='';
+    document.getElementById('meals').innerHTML = '';
+    document.getElementById('ingredients').innerHTML = '';
     fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=' + inputBox.value + '')
         .then(res => res.json())
         .then(data => displayMealName(data.meals));
@@ -22,7 +22,7 @@ const main = () => {
 
 
 const displayMealName = name => {
-    
+
     const mainDiv = document.getElementById('meals');
 
     name.forEach(meal => {
@@ -40,7 +40,7 @@ const displayMealName = name => {
 
 // display meal details
 const displayMealDetail = idMeal => {
-    
+
     fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idMeal}`)
         .then(res => res.json())
         .then(data => {
@@ -49,19 +49,19 @@ const displayMealDetail = idMeal => {
 
 
     const mealInfo = mealdata => {
-        
+
         const displayDetails = document.getElementById('ingredients')
 
-        const mealstrIngredientDiv = document.createElement('div');
-        mealstrIngredientDiv.className = 'mealsIngredient'
+        // const mealstrIngredientDiv = document.createElement('div');
+        // mealstrIngredientDiv.className = 'mealsIngredient'
 
-        const ingredientsThumb = `
-                <img class="thubIngredient" src="${mealdata.strMealThumb}"></img>
-                `
-        const thubImage = document.getElementById('thumb');
-        thubImage.innerHTML = ingredientsThumb
+        // const ingredientsThumb = `
+        //         <img class="thubIngredient" src="${mealdata.strMealThumb}"></img>
+        //         `
+        // const thubImage = document.getElementById('thumb');
+        // thubImage.innerHTML = ingredientsThumb
         const mealIngredient = `
-
+        <img class="thubIngredient" src="${mealdata.strMealThumb}"></img>
                 <h2>${mealdata.strMeal}</h2>
                 <h4>Ingredients:</h4>
                 <h6>✔️ ${mealdata.strIngredient1}</h6>
@@ -74,12 +74,13 @@ const displayMealDetail = idMeal => {
                 <h6>✔️ ${mealdata.strIngredient8}</h6>
                 <center><button onclick="back()" class="btn btn-dark">❌</button></center>
                `;
-
-        mealstrIngredientDiv.innerHTML = mealIngredient;
-        displayDetails.appendChild(mealstrIngredientDiv)
+               
+               displayDetails.innerHTML = mealIngredient;
         
+        // displayDetails.appendChild(mealstrIngredientDiv)
+
     }
-    
+
     const hideFullpage = document.getElementById('foodArea');
     hideFullpage.style.display = "none";
     const showDetails = document.getElementById('ingredients');
@@ -87,7 +88,7 @@ const displayMealDetail = idMeal => {
 }
 
 const back = () => {
-    
+
     const showFullpage = document.getElementById('foodArea');
     showFullpage.style.display = "block";
     const hideDetails = document.getElementById('ingredients');
