@@ -51,15 +51,6 @@ const displayMealDetail = idMeal => {
     const mealInfo = mealdata => {
 
         const displayDetails = document.getElementById('ingredients')
-
-        // const mealstrIngredientDiv = document.createElement('div');
-        // mealstrIngredientDiv.className = 'mealsIngredient'
-
-        // const ingredientsThumb = `
-        //         <img class="thubIngredient" src="${mealdata.strMealThumb}"></img>
-        //         `
-        // const thubImage = document.getElementById('thumb');
-        // thubImage.innerHTML = ingredientsThumb
         const mealIngredient = `
         <img class="thubIngredient" src="${mealdata.strMealThumb}"></img>
                 <h2>${mealdata.strMeal}</h2>
@@ -76,8 +67,6 @@ const displayMealDetail = idMeal => {
                `;
                
                displayDetails.innerHTML = mealIngredient;
-        
-        // displayDetails.appendChild(mealstrIngredientDiv)
 
     }
 
