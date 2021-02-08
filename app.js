@@ -76,14 +76,14 @@ const displayMealDetail = idMeal => {
         displayDetails.appendChild(mealstrIngredientDiv)
     }
 
-    const hideFullpage = document.getElementById('allpage');
+    const hideFullpage = document.getElementById('foodArea');
     hideFullpage.style.display = "none";
     const showDetails = document.getElementById('ingredients');
     showDetails.style.display = 'block'
 }
 
 function back() {
-    const showFullpage = document.getElementById('allpage');
+    const showFullpage = document.getElementById('foodArea');
     showFullpage.style.display = "block";
     const hideDetails = document.getElementById('ingredients');
     hideDetails.style.display = 'none'
