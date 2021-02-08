@@ -81,7 +81,7 @@ const displayMealDetail = idMeal => {
     showDetails.style.display = 'block'
 }
 
-function back() {
+const back = () => {
     const showFullpage = document.getElementById('foodArea');
     showFullpage.style.display = "block";
     const hideDetails = document.getElementById('ingredients');
