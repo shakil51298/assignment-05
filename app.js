@@ -36,30 +36,27 @@ const displayMealName = name => {
     });
 }
 
-
-
-
 // display meal details
 const displayMealDetail = idMeal => {
-        fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idMeal}`)
-            .then(res => res.json())
-            .then(data => {
-                mealInfo(data.meals[0]);
-            })
+    fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idMeal}`)
+        .then(res => res.json())
+        .then(data => {
+            mealInfo(data.meals[0]);
+        })
 
 
-        const mealInfo = mealdata => {
-                const displayDetails = document.getElementById('ingredients')
+    const mealInfo = mealdata => {
+        const displayDetails = document.getElementById('ingredients')
 
-                const mealstrIngredientDiv = document.createElement('div');
-                mealstrIngredientDiv.className = 'mealsIngredient'
+        const mealstrIngredientDiv = document.createElement('div');
+        mealstrIngredientDiv.className = 'mealsIngredient'
 
-                const ingredientsThumb = `
+        const ingredientsThumb = `
                 <img class="thubIngredient" src="${mealdata.strMealThumb}"></img>
                 `
-                const thubImage = document.getElementById('thumb');
-                thubImage.innerHTML = ingredientsThumb
-                const mealIngredient = `
+        const thubImage = document.getElementById('thumb');
+        thubImage.innerHTML = ingredientsThumb
+        const mealIngredient = `
 
                 <h2>${mealdata.strMeal}</h2>
                 <h4>Ingredients:</h4>
@@ -74,19 +71,19 @@ const displayMealDetail = idMeal => {
                 <center><button onclick="back()" class="btn btn-dark">❌</button></center>
                `;
 
-                mealstrIngredientDiv.innerHTML = mealIngredient;
-                displayDetails.appendChild(mealstrIngredientDiv)
-            }
+        mealstrIngredientDiv.innerHTML = mealIngredient;
+        displayDetails.appendChild(mealstrIngredientDiv)
+    }
 
-            const hideFullpage = document.getElementById('foodArea');
-            hideFullpage.style.display = "none";
-            const showDetails = document.getElementById('ingredients');
-            showDetails.style.display = 'block'
-        }
+    const hideFullpage = document.getElementById('foodArea');
+    hideFullpage.style.display = "none";
+    const showDetails = document.getElementById('ingredients');
+    showDetails.style.display = 'block'
+}
 
-        function back() {
-            const showFullpage = document.getElementById('foodArea');
-            showFullpage.style.display = "block";
-            const hideDetails = document.getElementById('ingredients');
-            hideDetails.style.display = 'none'
-        }
+function back() {
+    const showFullpage = document.getElementById('foodArea');
+    showFullpage.style.display = "block";
+    const hideDetails = document.getElementById('ingredients');
+    hideDetails.style.display = 'none'
+}
