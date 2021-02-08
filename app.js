@@ -12,7 +12,7 @@ document.getElementById('searchBtn').addEventListener('click', function () {
 // display Meal Name thubnail
 
 const main = () => {
-
+    document.getElementById('meals').innerHTML='';
     fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=' + inputBox.value + '')
         .then(res => res.json())
         .then(data => displayMealName(data.meals));
@@ -38,6 +38,7 @@ const displayMealName = name => {
 
 // display meal details
 const displayMealDetail = idMeal => {
+    
     fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idMeal}`)
         .then(res => res.json())
         .then(data => {
