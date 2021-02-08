@@ -1,20 +1,20 @@
 const inputBox = document.getElementById('input-box');
 document.getElementById('searchBtn').addEventListener('click', function () {
+    const keyword = document.getElementById('inputBox.value');
+
+    if (inputBox.value === '') {
+        alert('Please put Meals name of Meals Catergory ')
+    }
     main();
 })
 
 const main = () => {
 
-    fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=' + inputBox.value + '')
+    fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=' + inputBox.value + '')
         .then(res => res.json())
         .then(data => displayMealName(data.meals));
-
-    try {
-        if (inputBox.value == "") throw "empty";
-    } catch (err) {
-        alert('We dont have meals By this name  plese Enter a valid name \n or Valid Category Name');
-    }
 }
+
 
 
 const displayMealName = name => {
